@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01126B9D164444A000362A2D /* cageStache.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 01126B9C164444A000362A2D /* cageStache.jpeg */; };
+		01126BA01644453E00362A2D /* Green_Checkmark.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 01126B9F1644453E00362A2D /* Green_Checkmark.jpeg */; };
+		01126BA3164445EC00362A2D /* StacheCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01126BA2164445EC00362A2D /* StacheCollectionViewController.m */; };
+		01126BB4164462FE00362A2D /* StachePickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01126BB3164462FE00362A2D /* StachePickCell.m */; };
+		01126BB616446B6800362A2D /* redx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01126BB516446B6800362A2D /* redx.jpg */; };
+		0168A605164472BE009375EC /* green-select-stash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0168A604164472BE009375EC /* green-select-stash.png */; };
+		0168A608164473A3009375EC /* red-no-stash.png in Resources */ = {isa = PBXBuildFile; fileRef = 0168A607164473A3009375EC /* red-no-stash.png */; };
 		01FA861F16438C5B0060FE3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FA861E16438C5B0060FE3A /* UIKit.framework */; };
 		01FA862116438C5B0060FE3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FA862016438C5B0060FE3A /* Foundation.framework */; };
 		01FA862316438C5B0060FE3A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FA862216438C5B0060FE3A /* CoreGraphics.framework */; };
@@ -24,6 +31,7 @@
 		01FA864816438C5B0060FE3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FA862016438C5B0060FE3A /* Foundation.framework */; };
 		01FA865016438C5B0060FE3A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01FA864E16438C5B0060FE3A /* InfoPlist.strings */; };
 		01FA865316438C5B0060FE3A /* MustacheMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FA865216438C5B0060FE3A /* MustacheMonitorTests.m */; };
+		01FA8666164394200060FE3A /* camera_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 01FA8665164394200060FE3A /* camera_overlay.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01126B9C164444A000362A2D /* cageStache.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cageStache.jpeg; sourceTree = "<group>"; };
+		01126B9F1644453E00362A2D /* Green_Checkmark.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Green_Checkmark.jpeg; sourceTree = "<group>"; };
+		01126BA1164445EC00362A2D /* StacheCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StacheCollectionViewController.h; sourceTree = "<group>"; };
+		01126BA2164445EC00362A2D /* StacheCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StacheCollectionViewController.m; sourceTree = "<group>"; };
+		01126BB2164462FD00362A2D /* StachePickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StachePickCell.h; sourceTree = "<group>"; };
+		01126BB3164462FE00362A2D /* StachePickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StachePickCell.m; sourceTree = "<group>"; };
+		01126BB516446B6800362A2D /* redx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redx.jpg; sourceTree = "<group>"; };
+		0168A604164472BE009375EC /* green-select-stash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-select-stash.png"; sourceTree = "<group>"; };
+		0168A607164473A3009375EC /* red-no-stash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-no-stash.png"; sourceTree = "<group>"; };
 		01FA861A16438C5B0060FE3A /* MustacheMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MustacheMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01FA861E16438C5B0060FE3A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		01FA862016438C5B0060FE3A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,6 +77,8 @@
 		01FA864F16438C5B0060FE3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		01FA865116438C5B0060FE3A /* MustacheMonitorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MustacheMonitorTests.h; sourceTree = "<group>"; };
 		01FA865216438C5B0060FE3A /* MustacheMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MustacheMonitorTests.m; sourceTree = "<group>"; };
+		01FA865C164392450060FE3A /* CustomCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCamera.h; path = MustacheMonitor/CustomCamera.h; sourceTree = "<group>"; };
+		01FA8665164394200060FE3A /* camera_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_overlay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +105,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01126BB11644625600362A2D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				01126B9C164444A000362A2D /* cageStache.jpeg */,
+				0168A607164473A3009375EC /* red-no-stash.png */,
+				0168A604164472BE009375EC /* green-select-stash.png */,
+				01126BB516446B6800362A2D /* redx.jpg */,
+				01FA8665164394200060FE3A /* camera_overlay.png */,
+				01126B9F1644453E00362A2D /* Green_Checkmark.jpeg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		01FA860F16438C5B0060FE3A = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +125,7 @@
 				01FA864B16438C5B0060FE3A /* MustacheMonitorTests */,
 				01FA861D16438C5B0060FE3A /* Frameworks */,
 				01FA861B16438C5B0060FE3A /* Products */,
+				01FA865C164392450060FE3A /* CustomCamera.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,10 +152,15 @@
 		01FA862416438C5B0060FE3A /* MustacheMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				01126BB11644625600362A2D /* Images */,
+				01FA863916438C5B0060FE3A /* MainStoryboard_iPad.storyboard */,
+				01FA863616438C5B0060FE3A /* MainStoryboard_iPhone.storyboard */,
 				01FA862D16438C5B0060FE3A /* AppDelegate.h */,
 				01FA862E16438C5B0060FE3A /* AppDelegate.m */,
-				01FA863616438C5B0060FE3A /* MainStoryboard_iPhone.storyboard */,
-				01FA863916438C5B0060FE3A /* MainStoryboard_iPad.storyboard */,
+				01126BA1164445EC00362A2D /* StacheCollectionViewController.h */,
+				01126BA2164445EC00362A2D /* StacheCollectionViewController.m */,
+				01126BB2164462FD00362A2D /* StachePickCell.h */,
+				01126BB3164462FE00362A2D /* StachePickCell.m */,
 				01FA863C16438C5B0060FE3A /* ViewController.h */,
 				01FA863D16438C5B0060FE3A /* ViewController.m */,
 				01FA862516438C5B0060FE3A /* Supporting Files */,
@@ -240,6 +278,12 @@
 				01FA863516438C5B0060FE3A /* Default-568h@2x.png in Resources */,
 				01FA863816438C5B0060FE3A /* MainStoryboard_iPhone.storyboard in Resources */,
 				01FA863B16438C5B0060FE3A /* MainStoryboard_iPad.storyboard in Resources */,
+				01FA8666164394200060FE3A /* camera_overlay.png in Resources */,
+				01126B9D164444A000362A2D /* cageStache.jpeg in Resources */,
+				01126BA01644453E00362A2D /* Green_Checkmark.jpeg in Resources */,
+				01126BB616446B6800362A2D /* redx.jpg in Resources */,
+				0168A605164472BE009375EC /* green-select-stash.png in Resources */,
+				0168A608164473A3009375EC /* red-no-stash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +321,8 @@
 				01FA862B16438C5B0060FE3A /* main.m in Sources */,
 				01FA862F16438C5B0060FE3A /* AppDelegate.m in Sources */,
 				01FA863E16438C5B0060FE3A /* ViewController.m in Sources */,
+				01126BA3164445EC00362A2D /* StacheCollectionViewController.m in Sources */,
+				01126BB4164462FE00362A2D /* StachePickCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +507,7 @@
 				01FA865816438C5B0060FE3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01FA865916438C5B0060FE3A /* Build configuration list for PBXNativeTarget "MustacheMonitorTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +516,7 @@
 				01FA865B16438C5B0060FE3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

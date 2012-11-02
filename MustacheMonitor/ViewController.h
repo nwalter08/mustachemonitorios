@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate,
+UINavigationControllerDelegate> {
+    UIImageView * imageView;
+	UIButton * choosePhotoBtn;
+	UIButton * takePhotoBtn;
+}
+
+@property (nonatomic, retain) IBOutlet UIImageView * imageView;
+@property (nonatomic, retain) IBOutlet UIButton * choosePhotoBtn;
+@property (nonatomic, retain) IBOutlet UIButton * takePhotoBtn;
+
+-(IBAction) getPhoto:(id) sender;
+- (IBAction)uploadImg:(id)sender;
 
 @end
