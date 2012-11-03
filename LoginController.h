@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *Username;
 @property (strong, nonatomic) IBOutlet UITextField *Password;
 - (IBAction)LoginTapped:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *BackgroundImage;
 
 @end

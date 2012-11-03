@@ -1,3 +1,4 @@
+
 //
 //  ViewController.m
 //  MustacheMonitor
@@ -7,6 +8,9 @@
 //
 
 #import "ViewController.h"
+#import "GKImagePicker.h"
+#import "StacheCollectionViewController.h"
+#import "TabController.h"
 
 @interface ViewController ()
 
@@ -18,7 +22,7 @@
 
 @implementation ViewController
 
-@synthesize imageView, choosePhotoBtn, takePhotoBtn;
+@synthesize imageView, choosePhotoBtn, takePhotoBtn, ImageSpinner;
 
 
 
@@ -28,15 +32,19 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.ImageSpinner setHidden:YES];
+    
+}
+
 -(IBAction) getPhoto:(id) sender {
-	UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
 	picker.delegate = self;
     
     
-    //TODO Fix this if statement logic
-	if((UIButton *) sender == choosePhotoBtn) {
-		picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-	} else {
+    
 		picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         //UIImageView *cameraOverlayView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"camera_overlay.png"]];
         
@@ -45,7 +53,7 @@
         cameraOverlayView.center = picker.view.center;
         cameraOverlayView.backgroundColor = [UIColor blueColor];
         picker.cameraOverlayView = cameraOverlayView;
-	}
+	
     
     
     
@@ -54,13 +62,20 @@
 
 - (IBAction)secondUploader:(id)sender
 {
+    //Place spinner over UIImage
+    
+    [self.ImageSpinner setHidden:NO];
+    [self.ImageSpinner startAnimating];
+    
     // create request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //Set Params
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [request setHTTPShouldHandleCookies:NO];
     [request setTimeoutInterval:30];
     [request setHTTPMethod:@"POST"];
+    
+    [request setHTTPShouldHandleCookies:YES];
+
     
     //Create boundary, it can be anything
     NSString *boundary = @"------WebKitFormBoundary4QuqLuM1cE5lMwCy";
@@ -85,8 +100,23 @@
     
     NSString *FileParamConstant = @"displayImage";
     
-    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, .1);
+    //UIImage *scaledImage = [UIImage imageWithCGImage:[self.imageView.image CGImage] scale:4.0 orientation:UIImageOrientationUp];
+    
+    CGSize newSize = CGSizeMake(220,220);
+    
+    UIGraphicsBeginImageContext( newSize );
+    [self.imageView.image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
 
+    NSData *imageData = UIImageJPEGRepresentation(newImage, .5);
+     
+
+    
+    
+    NSLog(@"kB:%f",imageData.length/1000.0);
+    NSLog(@"%@",[NSValue valueWithCGSize:newImage.size]);
+    
     
     //Assuming data is not nil we add this to the multipart form
     if (imageData) {
@@ -131,12 +161,28 @@
 
                                    
                                    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                   NSLog(@"%@",result);
+                                   //NSLog(@"%@",result);
                                    
                                    
                                    if (statusCode == 200)
                                    {
-                                       [self performSegueWithIdentifier:@"SugueToImagePick" sender:self];
+                                       //Change to My Pics tab
+                                       
+                                       // Get views. controllerIndex is passed in as the controller we want to go to.
+                                       UIView * fromView = self.tabBarController.selectedViewController.view;
+                                       UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:1] view];
+                                       
+                                       // Transition using a page curl.
+                                       [UIView transitionFromView:fromView
+                                                           toView:toView
+                                                         duration:0.5
+                                                          options:(1 > self.tabBarController.selectedIndex ? UIViewAnimationOptionTransitionCurlUp : UIViewAnimationOptionTransitionCurlDown)
+                                                       completion:^(BOOL finished) {
+                                                           if (finished) {
+                                                               self.tabBarController.selectedIndex = 1;
+                                                               [(TabController*)self.tabBarController makeStacheRefresh];
+                                                           }
+                                                       }];
                                    }
                                    
                                }
@@ -152,57 +198,49 @@
     
 }
 
-- (IBAction)uploadImg:(id)sender {
-    
-    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, .5);    //change Image to NSData
-    
-    if (imageData != nil)
-    {
-        NSString *filenames = [NSString stringWithFormat:@"TextLabel"];      //set name here
-        NSLog(@"%@", filenames);
-        NSString *urlString = @"http://mustachemonitor.com/upload";
-        
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:urlString]];
-        [request setHTTPMethod:@"POST"];
-        
-        NSString *boundary = @"---------------------------14737809831466499882746641449";
-        NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-        [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-        
-        NSMutableData *body = [NSMutableData data];
-        
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"filenames\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[filenames dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"Content-Disposition: form-data; name=\"userfile\"; filename=\".jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[NSData dataWithData:imageData]];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        // setting the body of the post to the reqeust
-        [request setHTTPBody:body];
-        // now lets make the connection to the web
-        NSURLResponse *response = nil;
-        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-        NSLog(@"RESULT: %@",returnString);
-        NSLog(@"finish");
-        
-        NSHTTPURLResponse * httpResponse = nil;
-        
-        httpResponse = (NSHTTPURLResponse *)response;
-        int statusCode = [httpResponse statusCode];
-        NSLog(@"HTTP Response Headers %@", [httpResponse allHeaderFields]);
-        NSLog(@"HTTP Status code: %d", statusCode);
-    }
-}
+
+
+
+
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
 	[picker dismissViewControllerAnimated:YES completion:nil];
-	imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+	
+    UIImage *original = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    UIImage *ret = nil;
+    
+    // This calculates the crop area.
+    
+    float originalWidth  = original.size.width;
+    float originalHeight = original.size.height;
+    
+    float edge = fminf(originalWidth, originalHeight);
+    
+    float posX = (originalWidth   - edge) / 2.0f;
+    float posY = (originalHeight  - edge) / 2.0f;
+    
+    
+    CGRect cropSquare = CGRectMake(posY, 0,
+                                   edge, edge);
+    
+    
+    // This performs the image cropping.
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([original CGImage], cropSquare);
+    
+    ret = [UIImage imageWithCGImage:imageRef
+                              scale:original.scale
+                        orientation:original.imageOrientation];
+    
+    CGImageRelease(imageRef);
+    
+    NSLog(@"NEW SIZE:%@",[NSValue valueWithCGSize:ret.size]);
+    
+    self.imageView.image = ret;
 }
 
 - (void)didReceiveMemoryWarning

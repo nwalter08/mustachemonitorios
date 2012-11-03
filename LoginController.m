@@ -14,6 +14,8 @@
 
 @implementation LoginController
 
+@synthesize Username, Password, BackgroundImage;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +29,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIColor *patternColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stash-background-repeating.png"]];
+    self.BackgroundImage.backgroundColor = patternColor;
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +62,7 @@
     
     
     
-    
+    [_request setHTTPShouldHandleCookies:YES];
     
     
     [_request setHTTPBody:body];
@@ -78,8 +83,10 @@
                                    NSLog(@"HTTP Status code: %d", statusCode);
                                    
                                    
+                                   
+                                   
                                    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                   NSLog(@"%@",result);
+                                   //NSLog(@"%@",result);
                                    
                                    NSArray *_resultsArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
                                    

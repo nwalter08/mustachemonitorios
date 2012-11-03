@@ -11,6 +11,7 @@
 @implementation StachePickCell
 
 @synthesize GreenCheckBtn = _GreenCheckBtn;
+@synthesize ThumbStache = _ThumbStache;
 
 - (id)initWithFrame:(CGRect)frame
 {

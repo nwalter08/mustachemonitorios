@@ -10,6 +10,11 @@
 
 @interface StacheCollectionViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (strong, nonatomic) IBOutlet UICollectionView *CollView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *StacheLoader;
+@property (nonatomic, strong) NSArray *StachePics;
+- (IBAction)CreateAnimationTapped:(id)sender;
+-(void)asyncCallForStaches;
+
 
 
 @end

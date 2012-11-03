@@ -10,5 +10,6 @@
 
 @interface StachePickCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *GreenCheckBtn;
+@property (strong, nonatomic) IBOutlet UIImageView *ThumbStache;
 
 @end

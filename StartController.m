@@ -29,6 +29,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.GifWebView.scrollView.scrollEnabled = NO;
+    self.GifWebView.scrollView.bounces = NO;
+    
+    
     NSString *urlAddress = @"http://25.media.tumblr.com/tumblr_m1u25dM9j01qjvsoxo1_250.gif";
     
     //Create a URL object.
