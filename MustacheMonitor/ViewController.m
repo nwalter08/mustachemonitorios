@@ -54,9 +54,6 @@
 
 - (IBAction)secondUploader:(id)sender
 {
-    [self performSegueWithIdentifier:@"SugueToImagePick" sender:self];
-    
-    /*
     // create request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //Set Params
@@ -88,7 +85,7 @@
     
     NSString *FileParamConstant = @"displayImage";
     
-    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, .5);
+    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, .1);
 
     
     //Assuming data is not nil we add this to the multipart form
@@ -137,6 +134,11 @@
                                    NSLog(@"%@",result);
                                    
                                    
+                                   if (statusCode == 200)
+                                   {
+                                       [self performSegueWithIdentifier:@"SugueToImagePick" sender:self];
+                                   }
+                                   
                                }
                                else if ([data length] == 0 && error == nil)
                                {
@@ -146,7 +148,7 @@
                                    NSLog(@"Error = %@", error);
                                }
                            }];
-     */
+     
     
 }
 
