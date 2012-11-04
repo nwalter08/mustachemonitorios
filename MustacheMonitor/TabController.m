@@ -8,12 +8,15 @@
 
 #import "TabController.h"
 #import "StacheCollectionViewController.h"
+#import "ShareAnimationController.h"
 
 @interface TabController ()
 
 @end
 
 @implementation TabController
+
+@synthesize AnimationId = _AnimationId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSLog(@"here");
 }
 
 - (void)makeStacheRefresh
@@ -39,6 +43,21 @@
         {
             NSLog(@"Got StacheCollectionViewController");
             [(StacheCollectionViewController*)tempCon asyncCallForStaches];
+        }
+    }
+}
+
+-(void)setId:(NSString*)theId
+{
+    self.AnimationId = theId;
+    NSArray *myControllers = [self viewControllers];
+    for (UIViewController *tempCon in myControllers)
+    {
+        if ([tempCon isKindOfClass:[ShareAnimationController class]])
+        {
+            NSLog(@"Got ShareAnimationController");
+            [(ShareAnimationController*)tempCon setAnimationId:theId];
+            [(ShareAnimationController*)tempCon reloadWeb];
         }
     }
 }

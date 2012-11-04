@@ -13,5 +13,6 @@
 @synthesize id = _id;
 @synthesize imgLoaded = _imgLoaded;
 @synthesize actualImage = _actualImage;
+@synthesize send = _send;
 
 @end

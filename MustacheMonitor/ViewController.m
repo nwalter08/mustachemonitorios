@@ -22,7 +22,7 @@
 
 @implementation ViewController
 
-@synthesize imageView, choosePhotoBtn, takePhotoBtn, ImageSpinner;
+@synthesize imageView, choosePhotoBtn, takePhotoBtn, ImageSpinner, BackgroundImage;
 
 
 
@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    UIColor *patternColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stash-background-repeating.png"]];
+    self.BackgroundImage.backgroundColor = patternColor;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -43,19 +45,34 @@
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
 	picker.delegate = self;
     
-    
-    
 		picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        //UIImageView *cameraOverlayView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"camera_overlay.png"]];
+    
+    UIImage *rawImg = [UIImage imageNamed:@"face-exp-say-whut.png"];
+    
+    
         
-        UIImageView *cameraOverlayView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+        
+    CGSize newSize = CGSizeMake(221,320);
+    
+    UIGraphicsBeginImageContext( newSize );
+    [rawImg drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+
+    
+    
+    NSLog(@"%@",[NSValue valueWithCGSize:newImage.size]);
+    
+    UIImageView *cameraOverlayView = [[UIImageView alloc] initWithImage:newImage];
         
         cameraOverlayView.center = picker.view.center;
-        cameraOverlayView.backgroundColor = [UIColor blueColor];
+    
+    [cameraOverlayView setFrame:CGRectMake(cameraOverlayView.frame.origin.x, (cameraOverlayView.frame.origin.y - 50.0), cameraOverlayView.frame.size.width, cameraOverlayView.frame.size.height)];
+    
         picker.cameraOverlayView = cameraOverlayView;
 	
-    
-    
+
     
 	[self presentViewController:picker animated:YES completion:nil];
 }

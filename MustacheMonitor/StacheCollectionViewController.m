@@ -10,6 +10,7 @@
 #import "StachePickCell.h"
 #import "SBJson.h"
 #import "StachePic.h"
+#import "TabController.h"
 
 @interface StacheCollectionViewController ()
 
@@ -36,6 +37,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIColor *patternColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stash-background-repeating.png"]];
+    self.BackgroundImage.backgroundColor = patternColor;
 
     self.CollView.delegate = self;
     
@@ -95,7 +99,8 @@
              {
                  StachePic *tempStachePic = [[StachePic alloc] init];
                  tempStachePic.id = [NSString stringWithFormat:@"%@", [topic objectForKey:@"id"]];
-                                  
+                 [tempStachePic setSend:YES];
+                 
                  [mutableStachePics addObject:tempStachePic];
              }
              
@@ -206,16 +211,20 @@
     
     cell = (StachePickCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
+    StachePic *tempStache = [self.StachePics objectAtIndex:indexPath.row];
+    
     UIImage *checkImg = [UIImage imageNamed:@"green-select-stash.png"];
     //If green check image
     if (cell.GreenCheckBtn.image == checkImg)
     {
         //Turn to red
         [cell.GreenCheckBtn setImage:[UIImage imageNamed:@"red-no-stash.png"]];
+        tempStache.send = NO;
     }
     else{
         //Turn to green
         [cell.GreenCheckBtn setImage:checkImg];
+        tempStache.send = YES;
     }
 }
 
@@ -252,16 +261,25 @@
     NSLog(@"COUNTA: %d", [self.StachePics count]);
     
     int i = 0;
+    BOOL firstItem = YES;
     
     for (i = 0; i < [self.StachePics count]; i++)
     {
-        [bodyString appendString:@"\""];
         StachePic *tempStachePic = [self.StachePics objectAtIndex:i];
-        [bodyString appendString:tempStachePic.id];
-        [bodyString appendString:@"\""];
-        if (i != ([self.StachePics count] -1))
+        if(tempStachePic.send)
         {
-            [bodyString appendString:@","];
+            if (firstItem)
+            {
+                firstItem = NO;
+            }
+            else
+            {
+                [bodyString appendString:@","];
+            }
+            [bodyString appendString:@"\""];
+            [bodyString appendString:tempStachePic.id];
+            [bodyString appendString:@"\""];
+            
         }
         
     }
@@ -300,13 +318,37 @@
                                    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                    NSLog(@"%@",result);
                                    
-                                   NSArray *_resultsArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+                                   NSDictionary *_resultsDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+                                   
+                                   
                                    
                                    if (statusCode == 200)
                                    {
                                        NSLog(@"A-OK!!");
                                        
-                                       [self performSegueWithIdentifier:@"SegueToNewGif" sender:self];
+                                       NSLog(@"URL IEEES: %@",[_resultsDic objectForKey:@"url"]);
+                                       
+                                       NSString *daURL = [_resultsDic objectForKey:@"url"];
+                                       
+                                       UIView * fromView = self.tabBarController.selectedViewController.view;
+                                       UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:2] view];
+                                       
+                                       [(TabController*)self.tabBarController setAnimationId:daURL];
+                                       
+                                       
+                                       [(TabController*)self.tabBarController setId:daURL];
+                                       
+                                       // Transition using a page curl.
+                                       [UIView transitionFromView:fromView
+                                                           toView:toView
+                                                         duration:0.5
+                                                          options:(2 > self.tabBarController.selectedIndex ? UIViewAnimationOptionTransitionCurlUp : UIViewAnimationOptionTransitionCurlDown)
+                                                       completion:^(BOOL finished) {
+                                                           if (finished) {
+                                                               self.tabBarController.selectedIndex = 2;
+                                                            
+                                                           }
+                                                       }];
                                    }
                                    
                                    

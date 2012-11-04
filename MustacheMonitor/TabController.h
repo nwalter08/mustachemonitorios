@@ -11,5 +11,8 @@
 @interface TabController : UITabBarController
 
 - (void)makeStacheRefresh;
+-(void)setId:(NSString*)theId;
+
+@property (strong, nonatomic) NSString* AnimationId;
 
 @end

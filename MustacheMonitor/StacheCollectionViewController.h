@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *CollView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *StacheLoader;
 @property (nonatomic, strong) NSArray *StachePics;
+@property (strong, nonatomic) IBOutlet UIImageView *BackgroundImage;
 - (IBAction)CreateAnimationTapped:(id)sender;
 -(void)asyncCallForStaches;
 

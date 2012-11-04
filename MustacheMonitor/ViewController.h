@@ -19,6 +19,7 @@ UINavigationControllerDelegate> {
 @property (nonatomic, retain) IBOutlet UIButton * choosePhotoBtn;
 @property (nonatomic, retain) IBOutlet UIButton * takePhotoBtn;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *ImageSpinner;
+@property (strong, nonatomic) IBOutlet UIImageView *BackgroundImage;
 
 -(IBAction) getPhoto:(id) sender;
 - (IBAction)uploadImg:(id)sender;

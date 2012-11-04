@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *id;
 @property BOOL imgLoaded;
+@property BOOL send;
 @property (nonatomic, strong) UIImage *actualImage;
 
 @end

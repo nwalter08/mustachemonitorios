@@ -112,7 +112,7 @@
             </objects>
             <point key="canvasLocation" x="473" y="417"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--View Controller - Capture-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
@@ -120,6 +120,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98o-5f-IZd"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooX-tj-U1E">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="MUH STACHE CAM">
@@ -154,24 +155,29 @@
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JW7-h4-oF0"/>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.075191709640000007" green="1" blue="0.96026851000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="JW7-h4-oF0" firstAttribute="centerX" secondItem="ooX-tj-U1E" secondAttribute="centerX" type="default" id="5Cs-rP-YNK"/>
+                            <constraint firstItem="98o-5f-IZd" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="0HR-o7-O9M"/>
+                            <constraint firstItem="98o-5f-IZd" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="22D-HZ-t0e"/>
                             <constraint firstItem="2eF-qy-f5I" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="6JT-8m-mFE"/>
                             <constraint firstItem="La0-jD-zUq" firstAttribute="leading" secondItem="ooX-tj-U1E" secondAttribute="leading" type="default" id="8SA-EE-c5S"/>
                             <constraint firstItem="ooX-tj-U1E" firstAttribute="trailing" secondItem="2eF-qy-f5I" secondAttribute="trailing" type="default" id="Eje-Tz-hfs"/>
                             <constraint firstItem="La0-jD-zUq" firstAttribute="trailing" secondItem="ooX-tj-U1E" secondAttribute="trailing" type="default" id="GMs-vR-xOd"/>
+                            <constraint firstItem="ooX-tj-U1E" firstAttribute="centerX" secondItem="JW7-h4-oF0" secondAttribute="centerX" type="default" id="Iwp-QG-J8Q"/>
                             <constraint firstItem="JW7-h4-oF0" firstAttribute="top" secondItem="3" secondAttribute="top" constant="137" id="Kqs-H7-a50"/>
                             <constraint firstAttribute="bottom" secondItem="ooX-tj-U1E" secondAttribute="bottom" constant="74" id="dfe-bc-wak"/>
                             <constraint firstAttribute="bottom" secondItem="La0-jD-zUq" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="fWq-YC-t0N"/>
+                            <constraint firstItem="98o-5f-IZd" firstAttribute="centerX" secondItem="JW7-h4-oF0" secondAttribute="centerX" type="default" id="i7h-m6-QHN"/>
                             <constraint firstItem="2eF-qy-f5I" firstAttribute="leading" secondItem="ooX-tj-U1E" secondAttribute="leading" type="default" id="o61-WG-F4Y"/>
-                            <constraint firstItem="2eF-qy-f5I" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="yqe-oP-nOB"/>
+                            <constraint firstItem="98o-5f-IZd" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="pTv-sU-FFW"/>
+                            <constraint firstItem="98o-5f-IZd" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="sJw-Cc-oAQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="spK-qu-Chq"/>
+                    <tabBarItem key="tabBarItem" title="Capture" image="bottom-menu-icon-capture-.png" id="spK-qu-Chq"/>
                     <navigationItem key="navigationItem" id="8P8-66-vJ9"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="BackgroundImage" destination="98o-5f-IZd" id="LSN-mc-Gwt"/>
                         <outlet property="ImageSpinner" destination="JW7-h4-oF0" id="0BY-A2-cUT"/>
                         <outlet property="imageView" destination="2eF-qy-f5I" id="p1g-Im-hIc"/>
                         <outlet property="takePhotoBtn" destination="ooX-tj-U1E" id="6Nb-VT-ech"/>
@@ -189,23 +195,28 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2a8-ok-vdo">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="480" id="8x8-F4-B4C"/>
+                                </constraints>
+                            </imageView>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3To-ka-TX2">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="388" id="f8L-2D-4sU"/>
+                                    <constraint firstAttribute="height" constant="338" id="9ig-B5-xWF"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pgO-0Z-xFc">
                                     <size key="itemSize" width="90" height="90"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="NCo-4h-YCC">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="388"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="338"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StachePickCell" id="y2l-KD-bbU" customClass="StachePickCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <rect key="frame" x="10" y="10" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
@@ -250,75 +261,64 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.075191709640000007" green="1" blue="0.96026851000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.99215692281723022" blue="0.9960784912109375" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="51x-3s-wEW" firstAttribute="centerX" secondItem="3To-ka-TX2" secondAttribute="centerX" type="default" id="I3i-Vs-zsn"/>
+                            <constraint firstItem="2a8-ok-vdo" firstAttribute="leading" secondItem="O4F-pD-wY4" secondAttribute="leading" type="default" id="7Do-bt-eqR"/>
+                            <constraint firstItem="2a8-ok-vdo" firstAttribute="trailing" secondItem="O4F-pD-wY4" secondAttribute="trailing" type="default" id="F6J-l6-mp2"/>
                             <constraint firstItem="3To-ka-TX2" firstAttribute="top" secondItem="O4F-pD-wY4" secondAttribute="top" type="default" id="S5S-FQ-ynB"/>
-                            <constraint firstAttribute="bottom" secondItem="51x-3s-wEW" secondAttribute="bottom" constant="22" id="Slh-FV-ybY"/>
+                            <constraint firstItem="51x-3s-wEW" firstAttribute="top" secondItem="3To-ka-TX2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zhi-EM-ytW"/>
+                            <constraint firstItem="2a8-ok-vdo" firstAttribute="top" secondItem="O4F-pD-wY4" secondAttribute="top" type="default" id="i9w-bi-WQG"/>
                             <constraint firstItem="3To-ka-TX2" firstAttribute="leading" secondItem="O4F-pD-wY4" secondAttribute="leading" type="default" id="kTf-8k-yXs"/>
-                            <constraint firstItem="3To-ka-TX2" firstAttribute="trailing" secondItem="O4F-pD-wY4" secondAttribute="trailing" type="default" id="ome-e2-J4v"/>
+                            <constraint firstItem="3To-ka-TX2" firstAttribute="trailing" secondItem="O4F-pD-wY4" secondAttribute="trailing" type="default" id="vBh-FS-ase"/>
+                            <constraint firstItem="51x-3s-wEW" firstAttribute="centerX" secondItem="3To-ka-TX2" secondAttribute="centerX" type="default" id="yp9-bP-OPt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Pics" id="CrH-0c-gFJ"/>
+                    <tabBarItem key="tabBarItem" title="My Pics" image="bottom-menu-icon-gallery.png" id="CrH-0c-gFJ"/>
                     <navigationItem key="navigationItem" id="HfA-iF-Amn"/>
                     <connections>
+                        <outlet property="BackgroundImage" destination="2a8-ok-vdo" id="hvh-b6-wy8"/>
                         <outlet property="CollView" destination="3To-ka-TX2" id="eVY-l3-zlK"/>
                         <outlet property="StacheLoader" destination="NCo-4h-YCC" id="nu7-rV-XmO"/>
-                        <segue destination="keq-Nl-nh1" kind="modal" identifier="SegueToNewGif" id="qnV-U4-Lbo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCi-zy-tCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2157" y="161"/>
+            <point key="canvasLocation" x="2157" y="168"/>
         </scene>
-        <!--View Controller - Animations-->
-        <scene sceneID="Mt5-Gs-l0o">
-            <objects>
-                <viewController id="lJV-Qa-nIa" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ufm-Ft-GgM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Animations" id="z5D-dx-MFu"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dQa-qx-N8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2157" y="735"/>
-        </scene>
-        <!--View Controller-->
+        <!--Share Animation Controller - Animations-->
         <scene sceneID="DFe-gq-lHh">
             <objects>
-                <viewController id="keq-Nl-nh1" sceneMemberID="viewController">
+                <viewController id="keq-Nl-nh1" customClass="ShareAnimationController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2p9-HL-LOx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Famous Stache" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRf-6P-IgH">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awJ-pv-CrR"/>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dxl-Gj-DvQ">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="4hh-3U-1aV"/>
-                                    <constraint firstAttribute="height" constant="194" id="m1B-wP-eXj"/>
-                                </constraints>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Dxl-Gj-DvQ" firstAttribute="top" secondItem="YRf-6P-IgH" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5ot-zH-yxM"/>
-                            <constraint firstItem="YRf-6P-IgH" firstAttribute="top" secondItem="2p9-HL-LOx" secondAttribute="top" constant="20" symbolic="YES" type="default" id="g0h-2E-H54"/>
-                            <constraint firstItem="Dxl-Gj-DvQ" firstAttribute="centerX" secondItem="2p9-HL-LOx" secondAttribute="centerX" type="default" id="x2B-S0-fLF"/>
-                            <constraint firstItem="Dxl-Gj-DvQ" firstAttribute="centerX" secondItem="YRf-6P-IgH" secondAttribute="centerX" type="default" id="zD8-Ms-Eqn"/>
+                            <constraint firstItem="Dxl-Gj-DvQ" firstAttribute="bottom" secondItem="2p9-HL-LOx" secondAttribute="bottom" type="default" id="CSy-ce-VAj"/>
+                            <constraint firstItem="awJ-pv-CrR" firstAttribute="trailing" secondItem="2p9-HL-LOx" secondAttribute="trailing" type="default" id="OKu-Oo-5Nz"/>
+                            <constraint firstItem="awJ-pv-CrR" firstAttribute="leading" secondItem="2p9-HL-LOx" secondAttribute="leading" type="default" id="XWl-95-phi"/>
+                            <constraint firstItem="Dxl-Gj-DvQ" firstAttribute="trailing" secondItem="2p9-HL-LOx" secondAttribute="trailing" type="default" id="YaV-no-3lO"/>
+                            <constraint firstItem="Dxl-Gj-DvQ" firstAttribute="leading" secondItem="2p9-HL-LOx" secondAttribute="leading" type="default" id="aRD-hG-CUR"/>
+                            <constraint firstItem="awJ-pv-CrR" firstAttribute="top" secondItem="2p9-HL-LOx" secondAttribute="top" type="default" id="khB-eB-ReB"/>
+                            <constraint firstItem="awJ-pv-CrR" firstAttribute="bottom" secondItem="2p9-HL-LOx" secondAttribute="bottom" type="default" id="shT-mj-CHB"/>
+                            <constraint firstItem="Dxl-Gj-DvQ" firstAttribute="top" secondItem="2p9-HL-LOx" secondAttribute="top" type="default" id="z98-zW-6qc"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Animations" image="bottom-menu-icon-animate-.png" id="ZYN-Lc-T9Q"/>
+                    <connections>
+                        <outlet property="BackgroundImage" destination="awJ-pv-CrR" id="BMW-WI-H5e"/>
+                        <outlet property="GifWebView" destination="Dxl-Gj-DvQ" id="shP-rA-WqR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejc-jN-xoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2579" y="161"/>
+            <point key="canvasLocation" x="2157" y="819"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Iwf-xG-udi">
@@ -385,7 +385,7 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="LvO-v4-uDs"/>
                         <segue destination="2iG-al-v5S" kind="relationship" relationship="viewControllers" id="P5p-bW-6xm"/>
-                        <segue destination="lJV-Qa-nIa" kind="relationship" relationship="viewControllers" id="GlR-Ri-hLJ"/>
+                        <segue destination="keq-Nl-nh1" kind="relationship" relationship="viewControllers" id="dfb-cs-uye"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFa-9a-yLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -604,10 +604,93 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bottom-menu-icon-animate-.png" width="30" height="30"/>
+        <image name="bottom-menu-icon-capture-.png" width="30" height="30"/>
+        <image name="bottom-menu-icon-gallery.png" width="30" height="30"/>
         <image name="cageStache.jpeg" width="330" height="221"/>
         <image name="green-select-stash.png" width="50" height="50"/>
         <image name="mm_logo_trans.png" width="300" height="90"/>
     </resources>
+    <classes>
+        <class className="LoginController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginController.h"/>
+            <relationships>
+                <relationship kind="action" name="LoginTapped:"/>
+                <relationship kind="outlet" name="BackgroundImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="Password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="Username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ShareAnimationController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareAnimationController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="BackgroundImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="GifWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SignUpController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SignUpController.h"/>
+            <relationships>
+                <relationship kind="action" name="BackTapped:"/>
+                <relationship kind="action" name="SignUpTapped:"/>
+                <relationship kind="outlet" name="Email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="FirstName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="LastName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="Password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ReenterPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="Username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="StacheCollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StacheCollectionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="CreateAnimationTapped:"/>
+                <relationship kind="outlet" name="BackgroundImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="CollView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="StacheLoader" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="StachePickCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StachePickCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="GreenCheckBtn" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="ThumbStache" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="StartController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="GifWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="TabController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabController.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getPhoto:"/>
+                <relationship kind="action" name="uploadImg:"/>
+                <relationship kind="outlet" name="BackgroundImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="ImageSpinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="choosePhotoBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="takePhotoBtn" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

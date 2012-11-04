@@ -32,7 +32,9 @@
     
     UIColor *patternColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stash-background-repeating.png"]];
     self.BackgroundImage.backgroundColor = patternColor;
+    self.view.backgroundColor = [UIColor colorWithRed:57.0 green:167.0 blue:201.0 alpha:1.0];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -55,6 +57,7 @@
     [_request setAllHTTPHeaderFields:_headers];
     
     NSMutableData *body = [NSMutableData data];
+
     
     
     

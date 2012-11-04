@@ -17,6 +17,11 @@
 		0156075216457A3E006E15BC /* GKImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156074D16457A3E006E15BC /* GKImageCropViewController.m */; };
 		0156075316457A3E006E15BC /* GKImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156074F16457A3E006E15BC /* GKImagePicker.m */; };
 		0156075716459023006E15BC /* TabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156075616459023006E15BC /* TabController.m */; };
+		0156075E1645A25A006E15BC /* ShareAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0156075D1645A25A006E15BC /* ShareAnimationController.m */; };
+		015607601645AF54006E15BC /* face-exp-say-whut.png in Resources */ = {isa = PBXBuildFile; fileRef = 0156075F1645AF54006E15BC /* face-exp-say-whut.png */; };
+		015607641645B891006E15BC /* bottom-menu-icon-animate-.png in Resources */ = {isa = PBXBuildFile; fileRef = 015607611645B891006E15BC /* bottom-menu-icon-animate-.png */; };
+		015607651645B891006E15BC /* bottom-menu-icon-capture-.png in Resources */ = {isa = PBXBuildFile; fileRef = 015607621645B891006E15BC /* bottom-menu-icon-capture-.png */; };
+		015607661645B891006E15BC /* bottom-menu-icon-gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 015607631645B891006E15BC /* bottom-menu-icon-gallery.png */; };
 		0159A1A116448DD400E448F4 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0159A19F16448DD400E448F4 /* MainStoryboard_iPhone.storyboard */; };
 		0159A1A91644939800E448F4 /* StartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0159A1A81644939800E448F4 /* StartController.m */; };
 		0159A1AC1644A33D00E448F4 /* SignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0159A1AB1644A33D00E448F4 /* SignUpController.m */; };
@@ -89,6 +94,12 @@
 		0156074F16457A3E006E15BC /* GKImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImagePicker.m; sourceTree = "<group>"; };
 		0156075516459023006E15BC /* TabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabController.h; sourceTree = "<group>"; };
 		0156075616459023006E15BC /* TabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabController.m; sourceTree = "<group>"; };
+		0156075C1645A25A006E15BC /* ShareAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareAnimationController.h; sourceTree = "<group>"; };
+		0156075D1645A25A006E15BC /* ShareAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareAnimationController.m; sourceTree = "<group>"; };
+		0156075F1645AF54006E15BC /* face-exp-say-whut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "face-exp-say-whut.png"; path = "../face-exp-say-whut.png"; sourceTree = "<group>"; };
+		015607611645B891006E15BC /* bottom-menu-icon-animate-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-menu-icon-animate-.png"; sourceTree = "<group>"; };
+		015607621645B891006E15BC /* bottom-menu-icon-capture-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-menu-icon-capture-.png"; sourceTree = "<group>"; };
+		015607631645B891006E15BC /* bottom-menu-icon-gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-menu-icon-gallery.png"; sourceTree = "<group>"; };
 		0159A1A016448DD400E448F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		0159A1A71644939800E448F4 /* StartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartController.h; path = ../StartController.h; sourceTree = "<group>"; };
 		0159A1A81644939800E448F4 /* StartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartController.m; path = ../StartController.m; sourceTree = "<group>"; };
@@ -188,10 +199,14 @@
 		01126BB11644625600362A2D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0156075F1645AF54006E15BC /* face-exp-say-whut.png */,
 				0159A2641644E96300E448F4 /* stash-background-repeating.png */,
 				0159A2661644EBF900E448F4 /* mm_logo_trans.png */,
 				01126B9C164444A000362A2D /* cageStache.jpeg */,
 				0168A607164473A3009375EC /* red-no-stash.png */,
+				015607611645B891006E15BC /* bottom-menu-icon-animate-.png */,
+				015607621645B891006E15BC /* bottom-menu-icon-capture-.png */,
+				015607631645B891006E15BC /* bottom-menu-icon-gallery.png */,
 				0168A604164472BE009375EC /* green-select-stash.png */,
 				01126BB516446B6800362A2D /* redx.jpg */,
 				01FA8665164394200060FE3A /* camera_overlay.png */,
@@ -290,6 +305,8 @@
 				01126BB11644625600362A2D /* Images */,
 				01FA863916438C5B0060FE3A /* MainStoryboard_iPad.storyboard */,
 				0159A19F16448DD400E448F4 /* MainStoryboard_iPhone.storyboard */,
+				0156075C1645A25A006E15BC /* ShareAnimationController.h */,
+				0156075D1645A25A006E15BC /* ShareAnimationController.m */,
 				0156075516459023006E15BC /* TabController.h */,
 				0156075616459023006E15BC /* TabController.m */,
 				0159A1B11644A90400E448F4 /* LoginController.h */,
@@ -431,6 +448,10 @@
 				0159A1A116448DD400E448F4 /* MainStoryboard_iPhone.storyboard in Resources */,
 				0159A2651644E96300E448F4 /* stash-background-repeating.png in Resources */,
 				0159A2671644EBF900E448F4 /* mm_logo_trans.png in Resources */,
+				015607601645AF54006E15BC /* face-exp-say-whut.png in Resources */,
+				015607641645B891006E15BC /* bottom-menu-icon-animate-.png in Resources */,
+				015607651645B891006E15BC /* bottom-menu-icon-capture-.png in Resources */,
+				015607661645B891006E15BC /* bottom-menu-icon-gallery.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +512,7 @@
 				0156075216457A3E006E15BC /* GKImageCropViewController.m in Sources */,
 				0156075316457A3E006E15BC /* GKImagePicker.m in Sources */,
 				0156075716459023006E15BC /* TabController.m in Sources */,
+				0156075E1645A25A006E15BC /* ShareAnimationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
